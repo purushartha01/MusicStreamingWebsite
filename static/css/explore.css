@@ -1,0 +1,382 @@
+*,
+html,
+body {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: bold;
+
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 2rem;
+	color: white;
+	font-weight: bold;
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+	overflow-x: hidden;
+	background-color: hsla(262, 0%, 0%, 1);
+	background-image:
+		radial-gradient(at 19% 79%, hsla(360, 0%, 0%, 0.6) 0px, transparent 50%),
+		radial-gradient(at 0% 62%, hsla(265, 100%, 50%, 0.35) 0px, transparent 50%),
+		radial-gradient(at 78% 8%, hsla(360, 0%, 0%, 0.58) 0px, transparent 50%),
+		radial-gradient(at 100% 0%, hsla(305, 100%, 50%, 0.29) 0px, transparent 50%),
+		radial-gradient(at 95% 94%, hsla(291, 100%, 50%, 1) 0px, transparent 50%),
+		radial-gradient(at 0% 0%, rgb(157, 0, 255) 0px, transparent 50%);
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	scroll-behavior: smooth;
+}
+
+#container {
+	height: 80vh;
+	width: 100vw;
+	box-sizing: border-box;
+	background: transparent;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	overflow-x: hidden;
+	position: relative;
+	top: 10vh;
+}
+
+#mainView {
+	height: 65vh;
+	width: 100vw;
+	border-radius: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	position: relative;
+}
+
+
+.navBtns {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	border: none;
+	position: absolute;
+	opacity: 0.8;
+	background-color: transparent;
+	cursor: pointer;
+	color: white;
+	z-index: 10;
+}
+
+.navBtns:hover {
+	opacity: 1;
+	transition: all 1s;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+#navLeft {
+	left: 10px;
+}
+
+#navRight {
+	right: 10px;
+}
+
+.imageDivContainer {
+	height: 100%;
+	width: 86%;
+	margin: auto;
+	min-width: 400px;
+	position: relative;
+	/* box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 1 ); */
+	border-radius: 20px;
+}
+
+.imageDivContainer h3 {
+	top: 2%;
+	left: 2%;
+	width: 15vw;
+	position: relative;
+	font-size: 2rem;
+	font-weight: bold;
+	color: rgb(172, 165, 165);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+}
+
+.imageDivContainer button {
+	height: 5vh;
+	width: 10%;
+	min-width: 8vh;
+	border-radius: 10px;
+	font-size: 1rem;
+	border: none;
+	color: black;
+	position: absolute;
+	top: 78%;
+	left: 45%;
+}
+
+.imageDivContainer button:hover,
+.imageDivContainer:active {
+	background-color: rgba(157, 0, 255, 0.4);
+	color: white;
+}
+
+.recently-played {
+	position: relative;
+	top: 8vh;
+	width: 96vw;
+	min-height: 45vh;
+	margin: 0 auto;
+	/* border: 5px solid black; */
+}
+
+.recently-played h3 {
+	margin: 1% 2%;
+}
+
+.cards {
+	height: 100%;
+	width: 98%;
+	margin: auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20vh, 0.5fr));
+}
+
+.card {
+	height: 35vh;
+	min-width: 15vh;
+	width: 15vw;
+	background: white;
+	margin: 1vw;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.2);
+	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+	-webkit-backdrop-filter: blur(15px);
+	backdrop-filter: blur(20px);
+	cursor: pointer;
+}
+
+.bgImageContainer {
+	height: 100%;
+	width: 100%;
+	background: url("card_poster.jpg");
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border-radius: 10px;
+}
+
+.detailsContainer {
+	height: 10vh;
+	width: 100%;
+	padding: 5%;
+	position: absolute;
+	bottom: 0;
+	border-radius: 0 0 10px 10px;
+	-webkit-backdrop-filter: blur(25px);
+	backdrop-filter: blur(25px);
+	background: rgba(255, 255, 255, 0);
+	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.card h4 {
+	font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.card h5 {
+	font-size: 0.8rem;
+  margin-top: 2px;
+  color: white;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+
+.categoriesContainer {
+	min-height: 45vh;
+	width: 96vw;
+	/* border: 1px solid black; */
+	position: relative;
+	top: 10vh;
+	margin: auto;
+}
+
+.categoriesContainer h3{
+	margin: 2%;
+}
+
+.categoriesSection {
+	margin: 1%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(40vh, 0.5fr));
+}
+
+.categoryCard {
+	height: 25vh;
+	width: 40vh;
+	min-width: 30vh;
+	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.56);
+	border-radius: 10px;
+	margin: 1vw;
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.categoryCardh4{
+	position: relative;
+	margin: auto;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+.red{
+	background-color: rgb(255, 38, 0);
+}
+
+.orange{
+    background-color: rgb(23 126 215);
+}
+
+.yellow{
+	background-color: rgb(255, 136, 0);
+}
+
+.green{
+    background-color: rgb(125 0 177);
+}
+
+.mostPopular{
+	min-width: 45vh;
+	width: 96vw;
+	margin: auto;
+	position: relative;
+	top: 12vh;
+}
+
+.mostPopular h3{
+	margin: 2%;
+}
+
+.topPlaylist{
+	min-height: 50vh;
+	width: 96vw;
+	margin: auto;
+	position: relative;
+	top: 14vh;
+}
+
+.topPlaylist h3{
+	margin: 2%;
+}
+
+.playlistCards{
+	margin: 1%;
+	height: 100%;
+	width: 98%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit,minmax(30vh,0.5fr));
+	position: relative;
+}
+
+.playlistCard{
+	min-width: 20vh;
+	width: 15vw;
+	height: 35vh;
+	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+	margin: 1vw;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.playlistDetails{
+	height: 15vh;
+	width: 100%;
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+	background: rgba(255, 255, 255, 0);
+	box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+	border-radius: 0 0 10px 10px;
+    position: relative;
+    top: 20vh;
+}
+
+.allPlaylistsHeader{
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.allPlaylistsHeader form,form input,a{
+  text-decoration: none;
+  background:none;
+  color:white;
+  font-size: 1.3rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+}
+
+
+
+.playlistCardMid {
+    width: 10vw;
+    height: 10vw;
+    position: relative;
+    top: 2vh;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s linear;
+}
+
+.playlistCardMidParent {
+    width: 15vw;
+    height: 15vw;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.9);
+    margin: 1.2vw;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s linear;
+}
+
+.playlistCardMidParent:hover {
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+.playlistname{
+  min-width:100%;
+  text-transform: capitalize;
+    font-size: 1.5vw;
+    text-align-last: center;
+    margin-top: 15%;
+}
+
+.myPlaylistChildContainer{
+  height: 100%;
+  width:100%;
+    display: flex;
+    flex-wrap: wrap;
+  overflow:auto;
+}

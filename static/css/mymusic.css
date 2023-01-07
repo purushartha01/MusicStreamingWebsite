@@ -1,0 +1,498 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.2s linear;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.mymusicMainContainer {
+    position: relative;
+    top: 15vh;
+    background-color: hsla(262, 0%, 0%, 1);
+    background-image:
+        radial-gradient(at 19% 79%, hsla(360, 0%, 0%, 0.6) 0px, transparent 50%),
+        radial-gradient(at 0% 62%, hsla(265, 100%, 50%, 0.35) 0px, transparent 50%),
+        radial-gradient(at 78% 8%, hsla(360, 0%, 0%, 0.58) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(305, 100%, 50%, 0.29) 0px, transparent 50%),
+        radial-gradient(at 95% 94%, hsla(291, 100%, 50%, 1) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, rgb(157, 0, 255) 0px, transparent 50%);
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    scroll-behavior: smooth;
+    display: grid;
+    grid-template-columns: 20vw 70vw;
+    gap: 5vw;
+}
+
+
+.verticalHeadSection {
+    height: 75vh;
+    width: 20vw;
+    margin: 1vw;
+    position: relative;
+    left: 0;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.verticalHeadSection>ul {
+    list-style: none;
+    margin: 2vw;
+    display: block;
+}
+
+.titleListItems {
+    display: list-item;
+    color: white;
+    font-size: 1.5vw;
+    font-weight: 900;
+    min-width: fit-content;
+    min-height: 5vh;
+    text-align: justify;
+    margin: 2vw 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.titleListItems span {
+    margin-left: 1vw;
+}
+
+.active,
+.titleListItems:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.verticalDescSection {
+    height: 75vh;
+    width: 70vw;
+    margin: 1vw 1vw 0 1vw;
+    position: relative;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.myPlaylistChild {
+    height: 75vh;
+    width: 70vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.createPlaylistChild {
+    height: 75vh;
+    width: 70vw;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.addSongChild {
+    height: 75vh;
+    width: 70vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.playerchild{
+    height: 75vh;
+    width: 70vw;
+    position: relative;
+/*     overflow: hidden; */
+}
+
+.playlistCardMid {
+    width: 10vw;
+    height: 10vw;
+    position: relative;
+    top: 2vh;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s linear;
+}
+
+.playlistCardMidParent {
+    width: 15vw;
+    height: 15vw;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.9);
+    margin: 1.2vw;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s linear;
+}
+
+.playlistCardMidParent:hover {
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+.playlistname{
+  min-width:100%;
+  text-transform: capitalize;
+    font-size: 1.5vw;
+    text-align-last: center;
+    margin-top: 15%;
+}
+
+.myPlaylistChildContainer{
+  height: 100%;
+  width:100%;
+    display: flex;
+    flex-wrap: wrap;
+  overflow:auto;
+}
+
+.aligningIcon {
+    position: relative;
+    height: 10vw;
+    width: 10vw;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    margin: 2vw;
+    margin-top: 5.5vh;
+}
+
+.aligningIcon:hover,
+.aligningIcon:active {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+#addPlaylistPage i {
+    font-size: 8vw;
+    color: white;
+    margin: 1.2vw;
+}
+
+.popupSection {
+    position: absolute;
+    filter: blur(10px);
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.popupContent {
+    display: block;
+    position: relative;
+    height: 30vh;
+    width: 25vw;
+    margin: auto;
+    filter: none;
+    box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    z-index: 2;
+}
+
+.popupMessage {
+    display: grid;
+    margin: 1vw;
+    color: white;
+    gap: 1vw;
+}
+
+.popupMessage span {
+    grid-row: 1/1;
+    color: white;
+    position: relative;
+    right: 0;
+    font-size: 2vw;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-end
+}
+
+.popupMessage label {
+    grid-row: 2/2;
+}
+
+#playlistName {
+    background: none;
+    appearance: none;
+    height: 5vh;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    grid-row: 3/3;
+    padding: 1vw;
+}
+
+#playlistName:focus,
+#playlistName:active {
+    background-color: rgba(255, 255, 255, 0.1);
+    outline: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+#playlistName:focus::placeholder {
+    color: transparent;
+    margin-left: 1vw;
+    margin-top: 1vw;
+}
+
+.popupMessage input[type='submit'] {
+    grid-row: 4/4;
+    cursor: pointer;
+    background: none;
+    width: 50%;
+    height: 3vw;
+    border-radius: 10px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.popupMessage input[type='submit']:focus,
+.popupMessage input[type='submit']:active {
+    background-color: rgba(255, 255, 255, 0.1);
+    outline: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.playlistContent,.myplaylistContent {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 10px;
+    padding-bottom: 3vh;
+}
+
+.playlistSongData:hover,
+.playlistSongData:active,
+.myplaylistSongData:hover,
+.myplaylistSongData:active, .selection {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.playlistHeader ,.myplaylistHeader{
+    height: 28%;
+    width: 100%;
+    position: relative;
+    top: 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.18);
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.createPlaylistSubmitBtn{
+  height: 30%;
+  width: 15vw;
+  min-width: fit-content;
+  outline: none;
+  border:none;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  position: absolute;
+  right: 2%;
+  bottom: 3%;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0, 0.37);
+}
+
+.createPlaylistSubmitBtn:hover, .createPlaylistSubmitBtn:active{
+  background-color: hsla(262, 0%, 0%, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0, 0.5);
+  color: white;
+}
+
+.playlistHeading,.myplaylistHeading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-transform: capitalize;
+    margin: 1% 3%;
+}
+
+.playlistHeading{
+    margin-top: 5%;
+}
+
+.moveBackBtn{
+  filter: invert(1);
+  height: 5vh;
+  width: 5vw;
+  margin: 1% 0%;
+  cursor: pointer;
+}
+
+.playlistData ,.myplaylistData{
+    height: 70%;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.playlistSongData,.myplaylistSongData {
+    height: 6vh;
+    width: 96%;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    margin: 1% 0%;
+}
+
+.mylistSongData {
+  height: 100%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.listSongData{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.songLikeContainer{
+  height: 100%;
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.songChoiceContainer{
+    height: 100%;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mysongTitleData {
+    height: 60%;
+    width: 100%;
+    font-size: 1.2rem;
+    color: white;
+    text-transform: capitalize;
+}
+
+.mysongArtistData {
+    height: 40%;
+    width: 100%;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.89);
+    text-transform: capitalize;
+}
+
+.mymenu{
+    height: 100%;
+    width: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.songChoice {
+    height: 50%;
+    width: 20%;
+    outline: none;
+    border-radius: 25px;
+    background: transparent;
+    /* appearance: none; */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+
+}
+
+.mymenu img{
+    filter: invert(1);
+    height: 70%;
+  cursor:pointer;
+}
+
+.songLikeContainer img{
+    filter: invert(1);
+    height: 70%;
+  cursor:pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.menupopup{
+    background-color: transparent;
+    visibility: hidden;
+    position: relative;
+    height: 5vh;
+    width: 110px;
+    font-size: 0.8rem;
+    color: white;
+    display: flex;
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.5);
+  z-index:10;
+}
+
+.menupopup span{
+    margin: auto;
+}
+
+.showpopup {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}

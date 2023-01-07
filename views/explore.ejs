@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Explore</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
+    <script src="https://kit.fontawesome.com/2c7fc28a2f.js"></script>
+    <link rel="stylesheet" href="css/explore.css">
+</head>
+<%- include("partials/navbar.ejs",{username:username}) %>
+<body class="bodyContainer" onload='sendData(<%-JSON.stringify(featured) %>)'>
+    <div id="container">
+        <button type="button" id="navLeft" class="navBtns" title="Left">
+            <i class="fas fa-arrow-left fa-3x"></i>
+        </button>
+        <div id="mainView">
+            <div class="imageDivContainer">
+                
+            </div>
+        </div>
+        <button type="button" id="navRight" class="navBtns" title="right">
+            <i class="fas fa-arrow-right fa-3x"></i>
+        </button>
+    </div>
+    <div class="recently-played">
+        <div class="allPlaylistsHeader">
+          <h3>Recently Played</h3>
+              <form action="/explore/Recently-Played" method="post"><input type="submit" value="See All"></form>
+        </div>
+        <div class="cards">
+          <%for(let i=0;i<5;i++){%>
+              <div class="card">
+                <form method="post" action="/playSongs" style="display:none;">
+                  <input type="hidden" value="recently_played" name="songPlaylist">
+                  <input type="hidden" value=<%-JSON.stringify(recentlyplayed.playlistsongs[i].songname) %> name="songToPlay">
+                </form>
+                <div class="bgImageContainer" style='background: url(<%= recentlyplayed.playlistsongs[i].songposterportraitpath %>);background-size: cover;background-position: center center;background-repeat: no-repeat;'>
+                    <div class="detailsContainer">
+                        <h4><%=recentlyplayed.playlistsongs[i].songname%></h4>
+                        <h5><%=recentlyplayed.playlistsongs[i].songartist%></h5>
+                    </div>
+                </div>
+            </div>
+          <%}%>
+        </div>
+    </div>
+    <div class="categoriesContainer">
+        <div class="allPlaylistsHeader">
+          <h3>Categories</h3>
+              <form action="/explore/Categories" method="post"><input type="submit" value="See All"></form>
+        </div>
+        <div class="categoriesSection">
+            <form method="post" action="/explore/International" class="categoryCard red">
+                <input type="submit" value="International" class="categoryCardh4">
+            </form>
+            <form method="post" action="/explore/Bollywood" class="categoryCard orange">
+                <input type="submit" value="Bollywood" class="categoryCardh4">
+            </form>
+            <form method="post" action="/explore/Anime" class="categoryCard yellow">
+                <input type="submit" value="Anime" class="categoryCardh4">
+            </form>
+            <form method="post" action="/explore/Song-of-the-Day" class="categoryCard green">
+                <input type="submit" value="Song of the Day"class="categoryCardh4">
+            </form>
+        </div>
+    </div>
+    <div class="mostPopular">
+        <div class="allPlaylistsHeader">
+          <h3>Most Popular</h3>
+              <form action="/explore/Most-Popular" method="post"><input type="submit" value="See All"></form>
+        </div>
+        <div class="cards">
+            <%for(let i=0;i<5;i++){%>
+              <div class="card">
+                <form method="post" action="/playSongs" style="display:none;">
+                  <input type="hidden" value="most_popular" name="songPlaylist">
+                  <input type="hidden" value=<%-JSON.stringify(mostpopular.playlistsongs[i].songname) %> name="songToPlay">
+                </form>
+                <div class="bgImageContainer" style='background: url(<%= mostpopular.playlistsongs[i].songposterportraitpath %>);background-size: cover;background-position: center center;background-repeat: no-repeat;'>
+                    <div class="detailsContainer">
+                        <h4><%=mostpopular.playlistsongs[i].songname%></h4>
+                        <h5><%=mostpopular.playlistsongs[i].songartist%></h5>
+                    </div>
+                </div>
+            </div>
+          <%}%>
+        </div>
+    </div>
+    <div class="topPlaylist">
+        <div class="allPlaylistsHeader">
+          <h3>Top Playlists</h3>
+              <a href="/allPlaylists">See all</a>
+        </div>
+        <div class="playlistCards"> 
+            <% for(let i=0;i<5;i++){ %>              
+            <div class="playlistCardMidParent" onclick='' >
+              <form method="post" action="/allPlaylists/<%=topplaylists[i].playlistname%>" id="<%=topplaylists[i].playlistname%>" style="display:none;">
+                </form>
+              <div class="playlistCardMid" style="background: url(<%= topplaylists[i].playlistsongs[0].songposterportraitpath %>);background-position: center;background-size: cover;background-repeat: no-repeat;">
+              </div>
+              <h4 class="playlistname"><%- topplaylists[i].playlistname.replaceAll("_"," ") %></h4>
+            </div>
+          <% } %>
+        </div>
+    </div>
+<script src="js/explore.js"></script>
+</body>
+</html>

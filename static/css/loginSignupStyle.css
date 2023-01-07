@@ -1,0 +1,152 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: none;
+  color: white;
+}
+
+h1,h2,h3,h4,h5,h6{
+  margin:0;
+  padding:0;
+  font-size: xx-large;
+}
+
+p{
+  font-size: x-large;
+}
+
+.bodyClass{
+  position: relative;
+  height: 100vh;
+  background-color:hsla(262,0%,0%,1);
+  background-image:
+  radial-gradient(at 19% 79%, hsla(360,0%,0%,0.6) 0px, transparent 50%),
+  radial-gradient(at 0% 62%, hsla(265,100%,50%,0.35) 0px, transparent 50%),
+  radial-gradient(at 78% 8%, hsla(360,0%,0%,0.58) 0px, transparent 50%),
+  radial-gradient(at 100% 0%, hsla(305,100%,50%,0.29) 0px, transparent 50%),
+  radial-gradient(at 95% 94%, hsla(291,100%,50%,1) 0px, transparent 50%),
+  radial-gradient(at 0% 0%, hsla(277,100%,50%,1) 0px, transparent 50%);
+}
+
+.main-container{
+  position: relative;
+  background: white;
+  background: rgba( 255, 255, 255,0.08 );
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37 );
+  backdrop-filter: blur( 20px );
+  -webkit-backdrop-filter: blur( 15px );
+  border-radius: 10px;
+  border: 2px solid rgba( 255, 255, 255, 0.18 );
+  height:80vh;
+  width:80%;
+  margin: auto;
+  top:15vh;
+  transition:all 2s ease-in-out;
+}
+
+.login-cmd{
+  width: 50%;
+  position: absolute;
+  right: 0;
+  top: 35%;
+  padding:0 5%;
+}
+
+.signup-cmd{
+  width: 50%;
+  position: absolute;
+  left: 6%;
+  top: 35%;
+  padding: 0 5%;
+}
+
+.form-panel-left{
+  position:absolute;
+  height:70vh;
+  width:50%;
+  left:0;
+}
+
+.form-panel-right{
+  position: absolute;
+  height:70vh;
+  width:50%;
+  right:0;
+  top: 15%;
+}
+
+.login-panel,.signup-panel{
+  height: 60vh;
+}
+
+.login-panel h1,.signup-panel h1{
+  text-align:center;
+  margin: 10px;
+}
+
+.grid-form{
+  margin-top: 3%;
+  display: grid;
+  grid-template-columns:80%;
+  row-gap: 1rem;
+  justify-content: center;
+}
+
+.grid-form label{
+  font-size: 1.2em;
+}
+
+.grid-form input{
+  width:100%;
+  height:6vh;
+  padding: 5px;
+  font-size:1.07em;
+  appearance:none;
+  background: rgba(255,255,255,0);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+}
+
+.grid-form input:focus{
+  content:none;
+  outline:none;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+.grid-form input:focus::placeholder{
+  opacity:0;
+}
+
+button{
+  margin:15px;
+  height: 6vh;
+  width:50%;
+  background: rgba(220,69,255,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  font-size:1.07em;
+}
+
+.grid-form input[type='submit']{
+  width: 50%;
+  justify-self: center;
+  background: rgba(220,69,255,0.5);
+}
+
+.grid-form input[type='submit']:hover,.grid-form input[type='submit']:active,button:active,button:hover{
+  colot:white;
+  background:none;
+}
+
+.grid-form span{
+  justify-self: right;
+}
+
+.hide{
+  display: none;
+}
+
+#errors{
+  color:white;
+  margin: 0 auto;
+}

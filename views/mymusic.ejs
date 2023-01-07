@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/uploadForm.css">
+<link rel="stylesheet" href="css/player.css">
+    <link rel="stylesheet" href="css/mymusic.css">
+    <script src="https://kit.fontawesome.com/2c7fc28a2f.js"></script>
+    <title>My Music</title>
+</head>
+  <%if(playsongdata!==null){%>
+<body class="mymusicMainContainer" onload='sendPlaylist(<%-JSON.stringify(playsongdata)%>)'>
+  <%}else{%>
+<body class="mymusicMainContainer">
+  <%}%>
+<%- include("partials/navbar.ejs",{username:username}) %>
+    <div class="verticalHeadSection">
+        <ul id="titleList">
+            <li class="titleListItems active" id="myPlaylist"><span>My Playlists</span></li>
+            <li class="titleListItems" id="createPlaylist"><span>Create Playlist</span></li>
+            <li class="titleListItems" id="addSong"><span>Add Song</span></li>
+            <li class="titleListItems" id="player"><span>Player</span></li>
+        </ul>
+    </div>
+    <div class="verticalDescSection">
+        <div class="myPlaylistChild">
+          <div class="myPlaylistChildContainer">
+            <% playlist.forEach(function(item){ %>
+            <div class="playlistCardMidParent" onclick='showPlaylist(<%- JSON.stringify(item) %>)' >
+              <%if(item.playlistsongs[0].songposterportraitpath){%>
+              <div class="playlistCardMid" style="background: url(<%= item.playlistsongs[0].songposterportraitpath %>);background-position: center;background-size: cover;background-repeat: no-repeat;">
+                <%}else{%>
+                  <div class="playlistCardMid" style="background: url(<%= item.playlistsongs[0].songportraitposterpath %>);background-position: center;background-size: cover;background-repeat: no-repeat;">
+              <%}%>    
+              </div>
+              <h3 class="playlistname"><%= item.playlistname %></h3>
+            </div>
+          <% }) %>
+          </div>  
+          <div class="myplaylistContent hide">
+                <div class="myplaylistHeader">
+                    <img src="images/backbtn.svg" alt="Back" class="moveBackBtn">
+                    <h3 class="myplaylistHeading"></h3>
+                </div>
+                <div class="myplaylistData">
+                    
+                </div>
+            </div> 
+        </div>
+        <div class="createPlaylistChild hide">
+            <div class="aligningIcon" id="addPlaylistPage">
+                <i class="fas fa-plus""></i>
+            </div>
+            <div class=" popupSection hide" id="bgBlur">
+            </div>
+            <div class="popupContent hide" id="modalMessage">
+                <p class="popupMessage">
+                    <span id="closeBtn">&times;</span>
+                    <label for="playlistName">Enter Name for your Playlist</label>
+                    <input type="text" name="playlistName" id="playlistName" placeholder="playlist#12">
+                    <input type="submit" value="Confirm" id="addPlaylistBtn">
+                </p>
+            </div>
+            <div class=" playlistContent hide" id="playlistContent">
+                <div class="playlistHeader">
+                    <button type="submit" class="createPlaylistSubmitBtn">Create Playlist</button>
+                    <h3 class="playlistHeading"></h3>
+                </div>
+                <div class="playlistData">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="addSongChild hide">
+            <form action="/upload" method="post" enctype="multipart/form-data"  class="formController>
+        <label for="songName">Song Title</label>
+        <input type="text" name="songName" required class="" id="songName" title="Song Title" placeholder="">
+        <label for="songArtist">Song Artist</label>
+        <input type="text" name="songArtist" required class="" id="songArtist" title="Song Artist" placeholder="">
+        <label for="songPoster">Song Poster</label>
+        <input type="file" name="songPoster" required class="" id="songPoster" title="Song Poster">
+        <label for="songPosterPortrait">Song Poster(Portrait)</label>
+        <input type="file" name="songPosterPortrait" required class="" id="songPosterPortrai" title="Song Poster(Portrait)">
+        <label for="songFile">Song File</label>
+        <input type="file" name="songFile" required class="" id="songFile" title="Song" placeholder="">
+        <label for="category">Song Category</label>
+        <select name="category" id="category" required title="Song Category">
+            <option value="International">International</option>
+            <option value="Bollywood">Bollywood</option>
+            <option value="Anime">Anime</option>
+        </select>
+        <input type="submit" value="submit">
+    </form>
+        </div>
+        <div class="playerchild hide">
+<!--           <%- include("partials/player.ejs",{playsongdata:playsongdata}) %> -->
+          
+  <div class="player">
+    <div class="details">
+      <div class="track-art"></div>
+      <div class="track-name">Track Name</div>
+      <div class="track-artist">Track Artist</div>
+    </div>
+    <div class="buttons">
+      <div class="prev-track" onclick="prevTrack()"><i class="fa fa-step-backward fa-2x"></i></div>
+      <div class="playpause-track" onclick="playpauseTrack()"><i class="fa fa-play-circle fa-5x"></i></div>
+      <div class="next-track" onclick="nextTrack()"><i class="fa fa-step-forward fa-2x"></i></div>
+    </div>
+    <div class="slider_container">
+      <div class="current-time">00:00</div>
+      <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+      <div class="total-duration">00:00</div>
+    </div>
+    <div class="slider_container">
+      <i class="fa fa-volume-down"></i>
+      <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+      <i class="fa fa-volume-up"></i>
+    </div>
+  </div>
+        </div>
+    </div>
+</body>
+<script src="js/mymusic.js"></script>
+<script src="js/player.js"></script>
+
+</html>

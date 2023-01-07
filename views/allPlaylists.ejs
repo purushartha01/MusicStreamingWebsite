@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/viewPlaylist.css">
+    <title>Document</title>
+</head>
+<%- include("partials/navbar.ejs",{username:username}) %>
+<body class="viewplaylistbody">
+    <div class="allplaylistsContainer">
+        <div class="headerSection">
+            <h3 class="headingplaylist"><%-playlistdata.playlistname.replaceAll("_"," ")%> </h3>
+        </div>
+        <div class="playlistSection">
+            <%playlistdata.playlistsongs.forEach(function(item){%>
+              <div class="card" onclick='openPlaylist(<%- JSON.stringify(item.playlistname) %>)'>
+                <form action='allPlaylists/<%=item.playlistname%>' method="post" id=<%- JSON.stringify(item.playlistname) %>></form>
+                <div class="bgImageContainer" style='background: url(../<%= item.playlistsongs[0].songposterportraitpath %>);background-size: cover;background-position: center center;background-repeat: no-repeat;'>
+                    <div class="detailsContainer">
+                        <h4><%-item.playlistname.replaceAll("_"," ")%></h4>
+                    </div>
+                </div>
+            </div>
+          <%})%>
+        </div>
+    </div>
+            <script>
+              function openPlaylist(playlistName) {
+                document.getElementById(playlistName).submit();
+              }
+            </script>
+</body>
+<script src="js/viewPlaylist.js"></script>
+
+</html>

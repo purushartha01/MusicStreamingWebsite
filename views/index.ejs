@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/home-style.css">
+    <title>Home</title>
+</head>
+<body id="body" class="main-containerClass">
+  <%- include("partials/navbar.ejs",{username:username}) %>
+    <main>
+      <h1 class="welcomeHead">Welcome to Symfony, listen to amazing songs from your favourite artists ad-free!</h1>
+      <button id="getStartedBtn" type="button" class="start-button">
+        <p>Get Started! <span>&rarr;</span></p>
+      </button>
+      <script>
+        let btn=document.getElementById("getStartedBtn");
+        let form=document.getElementById("idleForm");
+        btn.addEventListener("click",function(){
+          location.href="/explore";
+        })
+      </script>
+    </main>
+    <footer>
+    </footer>
+</body>
+<!-- <script src="js/homescript.js"></script> -->
+</html>

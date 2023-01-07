@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.2s linear;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.settingMainContainer {
+    position: relative;
+    top: 20vh;
+    background-color: hsla(262, 0%, 0%, 1);
+    background-image:
+        radial-gradient(at 19% 79%, hsla(360, 0%, 0%, 0.6) 0px, transparent 50%),
+        radial-gradient(at 0% 62%, hsla(265, 100%, 50%, 0.35) 0px, transparent 50%),
+        radial-gradient(at 78% 8%, hsla(360, 0%, 0%, 0.58) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(305, 100%, 50%, 0.29) 0px, transparent 50%),
+        radial-gradient(at 95% 94%, hsla(291, 100%, 50%, 1) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, rgb(157, 0, 255) 0px, transparent 50%);
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    scroll-behavior: smooth;
+    display: grid;
+    grid-template-columns: 20vw 70vw;
+    gap: 5vw;
+}
+
+
+.verticalHeadSection {
+    height: 75vh;
+    width: 20vw;
+    margin: 1vw;
+    position: relative;
+    left: 0;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.verticalHeadSection>ul {
+    list-style: none;
+    margin: 2vw;
+    display: block;
+}
+
+.titleListItems {
+    display: list-item;
+    color: white;
+    font-size: 1.5vw;
+    font-weight: 900;
+    min-width: fit-content;
+    min-height: 5vh;
+    text-align: justify;
+    margin: 2vw 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.titleListItems span {
+    margin-left: 1vw;
+}
+
+.active,
+.titleListItems:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.verticalDescSection {
+    height: 75vh;
+    width: 70vw;
+    margin: 1vw 1vw 0 1vw;
+    position: relative;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.resetPasswordChild {
+    height: 75vh;
+    width: 70vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.resetPasswordForm{
+  height: 30vh;
+  width: 30vw;
+  display:grid;
+  grid-template-rows: 10% 25% 25% 25% 10%
+  padding: 2vh;
+  margin: 5vh;
+}
+
+label{
+  grid-column: 1/1;
+  color: white;
+}
+
+.resetPasswordForm input{
+  width:100%;
+  height:6vh;
+  padding: 5px;
+  font-size:1.07em;
+  appearance:none;
+  background: rgba(255,255,255,0);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+}
+
+input:focus{
+  content:none;
+  outline:none;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+input:focus::placeholder{
+  opacity:0;
+}
+
+input[type="submit"]{
+  background: #e70de0;
+  color: white;
+  width: 15vw;
+  margin: auto;
+}
+input[type="submit"]:active, input[type="submit"]:hover{
+  background:transparent;
+}
+
+
+.hide {
+    display: none;
+}

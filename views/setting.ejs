@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/setting.css">
+    <script src="https://kit.fontawesome.com/2c7fc28a2f.js"></script>
+    <title>Settings</title>
+</head>
+<%-include("partials/navbar.ejs",{username:username})%>
+<body class="settingMainContainer">
+    <div class="verticalHeadSection">
+        <ul id="titleList">
+            <li class="titleListItems active" id="resetPassword"><span>Reset Password</span></li>
+        </ul>
+    </div>
+    <div class="verticalDescSection">
+        <div class="resetPasswordChild">
+            <form class="resetPasswordForm" action="/resetPassword" method="post">
+              <label for="Password">New Password</label>
+                <input id="Password" name="password" type="password" placeholder="Enter Password" required>
+              <label for="confirmPassword">Confirm Password</label>
+                <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Enter Password" required>
+              <input id="pswdResetBtn" type="submit" value="Submit">
+            </form>
+        </div>
+</body>
+<script src="js/setting.js"></script>
+
+</html>

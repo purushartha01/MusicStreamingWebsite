@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/loginSignupStyle.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <title>Login-Signup</title>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</head>
+<body class="bodyClass">
+  <%- include("partials/navbar.ejs",{username:null})%>
+  <main class="main-container">
+    <div class="login-cmd hide" id="login-cmd">
+      <h2>Already addicted?</h2>
+      <p> Login here to listen more!</p>
+      <button type="button" id="switchToLogin">Login</button>
+    </div>
+    <div class="signup-cmd" id="signup-cmd">
+      <h2>New to Symfony?</h2>
+      <p> Get started on your journey</p>
+      <button type="button" id="switchToSignup">Sign Up</button>
+    </div>
+    <div class="form-panel-right" id="form-panel">
+      <div class="login-panel" id="login-panel">
+        <h1>Login</h1>
+        <form action="/login" method="POST" class="grid-form" name="login-forms">
+          <label for="userId">Email ID</label>
+          <input type="text" name="userId" placeholder="Enter Email" title="Email" required>
+          <label for=passWord>Password</label>
+          <input type="password" name="passWord" placeholder="Enter Password" title="Password" required>
+          <span><a href="">Forgot Password?</a></span>
+          <input type="submit" value="Login" title="Login">
+        </form>
+      </div>
+      <div class="signup-panel hide" id="signup-panel">
+        <h1>Signup</h1>
+        <form action="/signup" method="POST" class="grid-form" id="signupForm" name="signup-forms" onsubmit="return validatePassword(event);">
+          <label for="userName">Username</label>
+          <input type="text" name="userName" placeholder="Enter Username">
+          <label for="eMail">Email</label>
+          <input type="email" name="eMail" placeholder="Enter your email" title="Username" id="email-signup">
+          <label for="passWord">Password</label>
+          <input type="password" id="password" name="passWord" placeholder="Enter your Password" title="Password">
+          <label for="confirmPassWord">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassWord" placeholder="Confirm your Password" title="Confirm Password">
+          <input type="submit" id="signupBtn" value="Sign Up" title="SignUp" onclick="return ValidateEmail(document.signup-forms.eMail);">
+        </form>
+      </div>  
+    </div>
+    <%if(error){%>
+      <p id="errors" style="display:none;"><%=error%></p>
+      <script>
+        var err=document.getElementById("errors").innerHTML;
+        Toastify({
+          text:`${err}`,
+          style:{
+            "top":"50%",
+            "left":"45%",
+            "width":"fit-content",
+            "background":"#dc45ff80"
+          }
+        }).showToast();
+      </script>
+    <%}%>
+  </main>
+</body>
+<script src="js/login-signupFunc.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</html>

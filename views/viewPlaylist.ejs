@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/viewPlaylist.css">
+    <title>Document</title>
+</head>
+<%- include("partials/navbar.ejs",{username:username}) %>
+<body class="viewplaylistbody">
+    <div class="allplaylistsContainer">
+        <div class="headerSection">
+            <h3 class="headingplaylist"><%-playlistdata.playlistname.replaceAll("_"," ")%> </h3>
+        </div>
+        <div class="playlistSection">
+            <%playlistdata.playlistsongs.forEach(function(item){%>
+              <div class="card">
+                <form method="post" action="../playSongs" style="display:none;">
+                  <input type="hidden" value=<%=playlistdata.playlistname%> name="songPlaylist">
+                  <input type="hidden" value=<%-JSON.stringify(item.songname) %> name="songToPlay">
+                </form>
+                <div class="bgImageContainer" style='background: url(../<%= item.songposterportraitpath %>);background-size: cover;background-position: center center;background-repeat: no-repeat;'>
+                    <div class="detailsContainer">
+                        <h4><%=item.songname%></h4>
+                        <h5><%=item.songartist%></h5>
+                    </div>
+                </div>
+            </div>
+          <%})%>
+        </div>
+    </div>
+</body>
+<script src="../js/viewPlaylist.js"></script>
+
+</html>

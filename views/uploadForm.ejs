@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/uploadForm.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/upload" method="post" enctype="multipart/form-data" class="formController">
+        <label for="songName">Song Title</label>
+        <input type="text" name="songName" class="" id="songName" title="Song Title" placeholder="" required>
+        <label for="songArtist">Song Artist</label>
+        <input type="text" name="songArtist" class="" id="songArtist" title="Song Artist" placeholder="" required>
+        <label for="songPoster">Song Poster</label>
+        <input type="file" name="songPoster" class="" id="songPoster" title="Song Poster" required>
+        <label for="songPosterPortrait">Song Poster(Portrait)</label>
+        <input type="file" name="songPosterPortrait" class="" id="songPosterPortrai" title="Song Poster(Portrait)" required>
+        <label for="songFile">Song File</label>
+        <input type="file" name="songFile" class="" id="songFile" title="Song" placeholder="" required>
+        <label for="category">Song Category</label>
+        <select name="category" id="category" title="Song Category">
+            <option value="International">International</option>
+            <option value="Bollywood">Bollywood</option>
+            <option value="Anime">Anime</option>
+        </select>
+        <input type="submit" value="submit">
+    </form>
+</body>
+<!-- <script src="t5.js"></script> -->
+</html>
