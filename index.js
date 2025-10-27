@@ -1,6 +1,6 @@
 const express = require("express");
 const port = 3000;
-const fs = require("fs");
+// const fs = require("fs");
 const cors = require("cors");
 const session = require("express-session");
 const userService = require("./services/userServices");
